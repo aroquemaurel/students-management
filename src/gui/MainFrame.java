@@ -6,6 +6,7 @@
 
 package gui;
 
+import etablissement.Etablissement;
 import java.awt.CardLayout;
 
 /**
@@ -14,11 +15,13 @@ import java.awt.CardLayout;
  */
 public class MainFrame extends javax.swing.JFrame {
 
+    private Etablissement _etablissement;
     /**
      * Creates new form MainFrame
      */
-    public MainFrame() {
+    public MainFrame(Etablissement e) {
         initComponents();
+        _etablissement = e;
     }
 
     /**
@@ -130,7 +133,7 @@ public class MainFrame extends javax.swing.JFrame {
                 /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainFrame().setVisible(true);
+                setVisible(true);
             }
         });
     }
