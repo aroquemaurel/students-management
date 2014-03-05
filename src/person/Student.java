@@ -10,6 +10,10 @@ package person;
  *
  * @author aroquemaurel
  */
-public class Student {
+public class Student extends Person {
+
+    public Student(String firstname, String lastname) {
+        super(firstname, lastname);
+    }
     
 }

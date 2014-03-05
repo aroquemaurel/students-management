@@ -18,10 +18,15 @@ public class MainFrame extends javax.swing.JFrame {
     private Etablissement _etablissement;
     /**
      * Creates new form MainFrame
+     * @param e l'établissement
      */
     public MainFrame(Etablissement e) {
-        initComponents();
         _etablissement = e;
+        initComponents();
+    }
+
+    public Etablissement getEtablissement() {
+        return _etablissement;
     }
 
     /**
@@ -37,7 +42,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         connexionPanel1 = new gui.ConnexionPanel();
         teacherPanel1 = new gui.TeacherPanel();
-        principalPanel2 = new gui.principal.PrincipalPanel();
+        principalPanel2 = new gui.principal.PrincipalPanel(_etablissement);
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         actionDeconnexion = new javax.swing.JMenuItem();
@@ -66,7 +71,7 @@ public class MainFrame extends javax.swing.JFrame {
         );
         teacherPanel1Layout.setVerticalGroup(
             teacherPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 430, Short.MAX_VALUE)
         );
 
         jPanel1.add(teacherPanel1, "card4");

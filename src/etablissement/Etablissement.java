@@ -6,6 +6,7 @@
 
 package etablissement;
 
+import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -14,7 +15,7 @@ import java.util.TreeSet;
  * @author aroquemaurel
  */
 public class Etablissement {
-    Set<Class> _classes;
+    Set<Classroom> _classes;
     Set<AuthorizedPerson> _authorizedPersons;
     
     public Etablissement() {
@@ -22,7 +23,7 @@ public class Etablissement {
         _authorizedPersons = new TreeSet<>();
     }
     
-    public void addClass(Class c) {
+    public void addClass(Classroom c) {
         _classes.add(c);
     }
     
@@ -30,7 +31,18 @@ public class Etablissement {
         _authorizedPersons.add(p);
     }
 
-    public Set<Class> getClasses() {
+    public Set<Classroom> getClasses() {
         return _classes;
+    }
+    
+    public Classroom getClass(Classroom c) {
+        Iterator it = _classes.iterator();
+        Classroom ret = null;
+        
+        while(it.hasNext() && !c.equals(ret)) {
+            ret = (Classroom)it.next();
+        }
+        
+        return ret;
     }
 }

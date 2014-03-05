@@ -17,6 +17,10 @@ public class Level implements Comparable<Level> {
         _level = level;
     }
 
+    public Level(final String level) {
+        _level = stringToInt(level);
+    }
+    
     public int getLevel() {
         return _level;
     }
@@ -48,5 +52,24 @@ public class Level implements Comparable<Level> {
         int hash = 7;
         hash = 61 * hash + this._level;
         return hash;
+    }
+    
+    private int stringToInt(String s) {
+        int ret = 0;
+        switch(s) {
+            case "Troisième":
+                ret = 3;
+                break;
+            case "Quatrième":
+                ret = 4;
+                break;
+            case "Cinquième":
+                ret = 5;
+                break;
+            case "Sixième":
+                ret = 6;
+                break;
+        }
+        return ret;
     }
 }

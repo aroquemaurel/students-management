@@ -6,16 +6,19 @@
 
 package gui.principal;
 
+import etablissement.Etablissement;
+
 /**
  *
  * @author aroquemaurel
  */
 public class PrincipalPanel extends javax.swing.JPanel {
-
+    private Etablissement _etablissement;
     /**
      * Creates new form PrincipalPanel
      */
-    public PrincipalPanel() {
+    public PrincipalPanel(Etablissement e) {
+        _etablissement = e;
         initComponents();
     }
 
@@ -29,14 +32,22 @@ public class PrincipalPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        classPanel2 = new gui.principal.ClassPanel();
+        classPanel2 = new gui.principal.ClassPanel(_etablissement);
 
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
 
-        jTabbedPane1.addTab("tab1", classPanel2);
+        jTabbedPane1.addTab("Classes", classPanel2);
 
         add(jTabbedPane1);
     }// </editor-fold>//GEN-END:initComponents
+
+    public Etablissement getEtablissement() {
+        return _etablissement;
+    }
+
+    public void setEtablissement(Etablissement _etablissement) {
+        this._etablissement = _etablissement;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

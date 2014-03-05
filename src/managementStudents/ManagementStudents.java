@@ -6,10 +6,10 @@
 
 package managementStudents;
 
+import etablissement.Classroom;
 import etablissement.Etablissement;
-import etablissement.Level;
 import gui.MainFrame;
-import java.util.Iterator;
+import person.Student;
 
 /**
  *
@@ -18,11 +18,20 @@ import java.util.Iterator;
 public class ManagementStudents {
     public static void main(String[] args) {
         Etablissement e = new Etablissement();
-        e.addClass(new etablissement.Class(new Level(5), 1));
-        e.addClass(new etablissement.Class(new Level(3), 1));
-        e.addClass(new etablissement.Class(new Level(6), 1));
-        e.addClass(new etablissement.Class(new Level(4), 1));
-        e.addClass(new etablissement.Class(new Level(5), 3));
+        Classroom buff = new Classroom("5e1");
+        buff.addStudent(new Student("prenom1", "nom1"), 
+                        new Student("prenom2", "nom2"),
+                        new Student("prenom3", "nom3"),
+                        new Student("prenom4", "nom4"));
+        e.addClass(buff);
+        buff = new Classroom("3e1");
+        e.addClass(buff);
+        buff = new Classroom("6e1");
+        e.addClass(buff);
+        buff = new Classroom("4e1");
+        e.addClass(buff);
+        buff = new Classroom("5e3");
+        e.addClass(buff);
         
         MainFrame f = new MainFrame(e);
         f.launch();

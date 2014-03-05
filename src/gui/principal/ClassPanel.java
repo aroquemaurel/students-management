@@ -6,16 +6,25 @@
 
 package gui.principal;
 
+import etablissement.Classroom;
+import etablissement.Etablissement;
+import etablissement.Level;
+import java.util.Iterator;
+import javax.swing.DefaultListModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+
 /**
  *
  * @author aroquemaurel
  */
 public class ClassPanel extends javax.swing.JPanel {
-
+    private Etablissement _etablissement;
     /**
      * Creates new form ClassPanel
      */
-    public ClassPanel() {
+    public ClassPanel(Etablissement e) {
+        _etablissement = e;
         initComponents();
         listStudents.setVisible(false);
         listTeachers.setVisible(false);
@@ -58,17 +67,19 @@ public class ClassPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
+        fillDataTree();
+        treeClass.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                treeClassValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(treeClass);
 
         add(jScrollPane1, java.awt.BorderLayout.LINE_START);
 
         jPanel1.setLayout(new java.awt.GridLayout(2, 1));
 
-        listStudents.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
+        listStudents.setModel(new DefaultListModel());
         jScrollPane3.setViewportView(listStudents);
 
         jPanel1.add(jScrollPane3);
@@ -85,6 +96,24 @@ public class ClassPanel extends javax.swing.JPanel {
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void treeClassValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_treeClassValueChanged
+     DefaultMutableTreeNode node = (DefaultMutableTreeNode) treeClass.getLastSelectedPathComponent();
+        if (node == null) {   //Nothing is selected.  
+            return;
+        }
+        Object nodeInfo = node.getUserObject();
+        
+        if (node.isLeaf()) {
+            listStudents.setVisible(true);
+            listTeachers.setVisible(true);
+            Classroom c = _etablissement.getClass(new Classroom((String)nodeInfo));
+            listStudents.setListData(c.getStudents().toArray());
+            listTeachers.setListData(c.getTeachers().toArray());
+        } else {
+            listStudents.setVisible(false);
+            listTeachers.setVisible(false);
+        }
+    }//GEN-LAST:event_treeClassValueChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
@@ -101,4 +130,36 @@ public class ClassPanel extends javax.swing.JPanel {
     private javax.swing.JList listTeachers;
     private javax.swing.JTree treeClass;
     // End of variables declaration//GEN-END:variables
+
+    void fillDataTree() {
+        DefaultMutableTreeNode racine = new DefaultMutableTreeNode("Root");
+        DefaultMutableTreeNode currentNode = null;
+        Iterator it = _etablissement.getClasses().iterator();
+        Level currentLevel = null;
+        Classroom currentClass;
+        
+        while(it.hasNext()) {
+            currentClass = (Classroom)it.next();
+            
+            // Si premièré itération, ou nouveau niveau
+            if(currentLevel == null || !currentLevel.equals(currentClass.getLevel())) {
+                currentLevel = currentClass.getLevel();
+                currentNode = new DefaultMutableTreeNode(currentLevel.toString());
+                racine.add(currentNode);
+            } 
+            
+            currentNode.add(new DefaultMutableTreeNode(currentClass.toString()));
+        }
+        
+        treeClass.setModel(new DefaultTreeModel(racine));
+        treeClass.setRootVisible(false);
+        expandTree();
+    }
+
+    private void expandTree() {
+        for(int i = 0 ; i < treeClass.getRowCount() ; ++i) {
+            treeClass.expandRow(i);
+        }
+    }
+
 }

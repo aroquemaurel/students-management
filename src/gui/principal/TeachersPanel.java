@@ -6,11 +6,14 @@
 
 package gui.principal;
 
+import etablissement.Etablissement;
+
 /**
  *
  * @author aroquemaurel
  */
 public class TeachersPanel extends javax.swing.JPanel {
+    private Etablissement _etablissement;
 
     /**
      * Creates new form TeachersPanel
@@ -48,7 +51,14 @@ public class TeachersPanel extends javax.swing.JPanel {
 
         add(jScrollPane1);
     }// </editor-fold>//GEN-END:initComponents
+   
+    public Etablissement getEtablissement() {
+        return _etablissement;
+    }
 
+    public void setEtablissement(Etablissement _etablissement) {
+        this._etablissement = _etablissement;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
