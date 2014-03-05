@@ -118,9 +118,11 @@ public class ConnexionPanel extends javax.swing.JPanel {
 
     private void btnConnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnexionActionPerformed
         // TODO si bien connecté
+        
         CardLayout layout = ((CardLayout)getParent().getLayout());
+        
         // si proviseur
-        layout.next(getParent());
+      //  layout.next(getParent());
         layout.next(getParent());
     }//GEN-LAST:event_btnConnexionActionPerformed
 

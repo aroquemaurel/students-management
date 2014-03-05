@@ -6,19 +6,15 @@
 
 package gui.principal;
 
-import etablissement.Etablissement;
-
 /**
  *
  * @author aroquemaurel
  */
-public class PrincipalPanel extends javax.swing.JPanel {
-    private Etablissement _etablissement;
+public class PrincipalFrame extends javax.swing.JPanel {
     /**
-     * Creates new form PrincipalPanel
+     * Creates new form PrincipalFrame
      */
-    public PrincipalPanel(Etablissement e) {
-        _etablissement = e;
+    public PrincipalFrame() {
         initComponents();
     }
 
@@ -31,27 +27,28 @@ public class PrincipalPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        treeClasses = new javax.swing.JTree();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        classPanel2 = new gui.principal.ClassPanel(_etablissement);
+        classPanel1 = new gui.principal.ClassPanel();
+        teachersPanel1 = new gui.principal.TeachersPanel();
 
-        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
+        jScrollPane1.setViewportView(treeClasses);
 
-        jTabbedPane1.addTab("Classes", classPanel2);
+        setLayout(new java.awt.BorderLayout());
 
-        add(jTabbedPane1);
+        jTabbedPane1.addTab("Classes", classPanel1);
+        jTabbedPane1.addTab("Professeurs", teachersPanel1);
+
+        add(jTabbedPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
-    public Etablissement getEtablissement() {
-        return _etablissement;
-    }
-
-    public void setEtablissement(Etablissement _etablissement) {
-        this._etablissement = _etablissement;
-    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private gui.principal.ClassPanel classPanel2;
+    private gui.principal.ClassPanel classPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private gui.principal.TeachersPanel teachersPanel1;
+    private javax.swing.JTree treeClasses;
     // End of variables declaration//GEN-END:variables
 }

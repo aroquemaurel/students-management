@@ -15,18 +15,15 @@ import java.awt.CardLayout;
  */
 public class MainFrame extends javax.swing.JFrame {
 
-    private Etablissement _etablissement;
+    public static Etablissement etablissement;
     /**
      * Creates new form MainFrame
      * @param e l'établissement
      */
     public MainFrame(Etablissement e) {
-        _etablissement = e;
+        etablissement = e;
+        
         initComponents();
-    }
-
-    public Etablissement getEtablissement() {
-        return _etablissement;
     }
 
     /**
@@ -41,8 +38,7 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         connexionPanel1 = new gui.ConnexionPanel();
-        teacherPanel1 = new gui.TeacherPanel();
-        principalPanel2 = new gui.principal.PrincipalPanel(_etablissement);
+        principalFrame1 = new gui.principal.PrincipalFrame();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         actionDeconnexion = new javax.swing.JMenuItem();
@@ -62,25 +58,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.CardLayout());
         jPanel1.add(connexionPanel1, "card2");
-
-        javax.swing.GroupLayout teacherPanel1Layout = new javax.swing.GroupLayout(teacherPanel1);
-        teacherPanel1.setLayout(teacherPanel1Layout);
-        teacherPanel1Layout.setHorizontalGroup(
-            teacherPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        teacherPanel1Layout.setVerticalGroup(
-            teacherPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(teacherPanel1, "card4");
-        jPanel1.add(principalPanel2, "card4");
+        jPanel1.add(principalFrame1, "card3");
 
         getContentPane().add(jPanel1, "card5");
 
         jMenu1.setText("Fichier");
 
+        actionDeconnexion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/power_off.png"))); // NOI18N
         actionDeconnexion.setText("Se déconnecter");
         actionDeconnexion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +74,7 @@ public class MainFrame extends javax.swing.JFrame {
         jMenu1.add(actionDeconnexion);
 
         jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/exit.png"))); // NOI18N
         jMenuItem5.setText("Fermer");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,7 +143,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
-    private gui.principal.PrincipalPanel principalPanel2;
-    private gui.TeacherPanel teacherPanel1;
+    private gui.principal.PrincipalFrame principalFrame1;
     // End of variables declaration//GEN-END:variables
 }

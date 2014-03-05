@@ -28,4 +28,14 @@ public class Teacher extends AuthorizedPerson {
     public String toString() {
         return super.toString()+ " ("+_discipline.toString()+")";
     }
+
+    public Discipline getDiscipline() {
+        return _discipline;
+    }
+
+    public void setDiscipline(Discipline _discipline) {
+        this._discipline = _discipline;
+    }
+    
+    
 }

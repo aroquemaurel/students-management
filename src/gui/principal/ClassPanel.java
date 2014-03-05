@@ -7,11 +7,11 @@
 package gui.principal;
 
 import etablissement.Classroom;
-import etablissement.Etablissement;
 import etablissement.Level;
+import gui.MainFrame;
+import static gui.MainFrame.etablissement;
 import gui.renderer.TeacherListRenderer;
 import java.util.Iterator;
-import javax.swing.DefaultListModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
@@ -20,15 +20,12 @@ import javax.swing.tree.DefaultTreeModel;
  * @author aroquemaurel
  */
 public class ClassPanel extends javax.swing.JPanel {
-    private Etablissement _etablissement;
     /**
      * Creates new form ClassPanel
      */
-    public ClassPanel(Etablissement e) {
-        _etablissement = e;
+    public ClassPanel() {
         initComponents();
-        listStudents.setVisible(false);
-        listTeachers.setVisible(false);
+        fillDataTree();
     }
 
     /**
@@ -40,35 +37,16 @@ public class ClassPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
         jScrollPane1 = new javax.swing.JScrollPane();
         treeClass = new javax.swing.JTree();
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
         listStudents = new javax.swing.JList();
-        jScrollPane4 = new javax.swing.JScrollPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
         listTeachers = new javax.swing.JList();
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("File");
-        jMenuBar2.add(jMenu3);
-
-        jMenu4.setText("Edit");
-        jMenuBar2.add(jMenu4);
 
         setLayout(new java.awt.BorderLayout());
 
-        fillDataTree();
         treeClass.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 treeClassValueChanged(evt);
@@ -76,29 +54,25 @@ public class ClassPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(treeClass);
 
-        add(jScrollPane1, java.awt.BorderLayout.LINE_START);
+        add(jScrollPane1, java.awt.BorderLayout.WEST);
 
         jPanel1.setLayout(new java.awt.GridLayout(2, 1));
 
         listStudents.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        listStudents.setModel(new DefaultListModel());
-        jScrollPane3.setViewportView(listStudents);
+        jScrollPane2.setViewportView(listStudents);
+
+        jPanel1.add(jScrollPane2);
+
+        listTeachers.setCellRenderer(new TeacherListRenderer());
+        jScrollPane3.setViewportView(listTeachers);
 
         jPanel1.add(jScrollPane3);
-
-        listTeachers.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        listTeachers.setModel(new DefaultListModel());
-        listTeachers.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        listTeachers.setCellRenderer(new TeacherListRenderer());
-        jScrollPane4.setViewportView(listTeachers);
-
-        jPanel1.add(jScrollPane4);
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void treeClassValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_treeClassValueChanged
-     DefaultMutableTreeNode node = (DefaultMutableTreeNode) treeClass.getLastSelectedPathComponent();
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode) treeClass.getLastSelectedPathComponent();
         if (node == null) {   //Nothing is selected.  
             return;
         }
@@ -107,7 +81,7 @@ public class ClassPanel extends javax.swing.JPanel {
         if (node.isLeaf()) {
             listStudents.setVisible(true);
             listTeachers.setVisible(true);
-            Classroom c = _etablissement.getClass(new Classroom((String)nodeInfo));
+            Classroom c = MainFrame.etablissement.getClass(new Classroom((String)nodeInfo));
             listStudents.setListData(c.getStudents().toArray());
             listTeachers.setListData(c.getTeachers().toArray());
             ((TeacherListRenderer)(listTeachers.getCellRenderer())).setClass(c);
@@ -117,26 +91,10 @@ public class ClassPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_treeClassValueChanged
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JList listStudents;
-    private javax.swing.JList listTeachers;
-    private javax.swing.JTree treeClass;
-    // End of variables declaration//GEN-END:variables
-
-    void fillDataTree() {
+    private void fillDataTree() {
         DefaultMutableTreeNode racine = new DefaultMutableTreeNode("Root");
         DefaultMutableTreeNode currentNode = null;
-        Iterator it = _etablissement.getClasses().iterator();
+        Iterator it = etablissement.getClasses().iterator();
         Level currentLevel = null;
         Classroom currentClass;
         
@@ -163,5 +121,13 @@ public class ClassPanel extends javax.swing.JPanel {
             treeClass.expandRow(i);
         }
     }
-
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JList listStudents;
+    private javax.swing.JList listTeachers;
+    private javax.swing.JTree treeClass;
+    // End of variables declaration//GEN-END:variables
 }

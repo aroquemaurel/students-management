@@ -6,20 +6,20 @@
 
 package gui.principal;
 
-import etablissement.Etablissement;
+import gui.MainFrame;
+import gui.models.TeachersTableModel;
 
 /**
  *
  * @author aroquemaurel
  */
 public class TeachersPanel extends javax.swing.JPanel {
-    private Etablissement _etablissement;
-
     /**
      * Creates new form TeachersPanel
      */
     public TeachersPanel() {
         initComponents();
+        tableTeachers.setVisible(true);
     }
 
     /**
@@ -32,36 +32,19 @@ public class TeachersPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableTeachers = new javax.swing.JTable();
 
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        tableTeachers.setModel(new TeachersTableModel(MainFrame.etablissement.getTeachers()));
+        jScrollPane1.setViewportView(tableTeachers);
 
         add(jScrollPane1);
     }// </editor-fold>//GEN-END:initComponents
-   
-    public Etablissement getEtablissement() {
-        return _etablissement;
-    }
 
-    public void setEtablissement(Etablissement _etablissement) {
-        this._etablissement = _etablissement;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tableTeachers;
     // End of variables declaration//GEN-END:variables
 }

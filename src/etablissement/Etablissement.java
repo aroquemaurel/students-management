@@ -7,10 +7,11 @@
 package etablissement;
 
 import java.util.Arrays;
-import person.AuthorizedPerson;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
+import person.Principal;
+import person.Teacher;
 
 /**
  *
@@ -18,19 +19,20 @@ import java.util.TreeSet;
  */
 public class Etablissement {
     Set<Classroom> _classes;
-    Set<AuthorizedPerson> _authorizedPersons;
+    Set<Teacher> _teachers;
+    Principal _principal;
     
     public Etablissement() {
         _classes = new TreeSet<>();
-        _authorizedPersons = new TreeSet<>();
+        _teachers = new TreeSet<>();
     }
     
     public void addClass(Classroom c) {
         _classes.add(c);
     }
     
-    public void addAuthorizedPerson(AuthorizedPerson... pPersons) {
-        _authorizedPersons.addAll(Arrays.asList(pPersons));
+    public void addAuthorizedPerson(Teacher... pPersons) {
+        _teachers.addAll(Arrays.asList(pPersons));
     }
 
     public Set<Classroom> getClasses() {
@@ -47,4 +49,18 @@ public class Etablissement {
         
         return ret;
     }
+
+    public Set<Teacher> getTeachers() {
+        return _teachers;
+    }
+
+    public Principal getPrincipal() {
+        return _principal;
+    }
+
+    public void setPrincipal(Principal _principal) {
+        this._principal = _principal;
+    }
+    
+    
 }
