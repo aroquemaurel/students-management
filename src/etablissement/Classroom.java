@@ -22,6 +22,7 @@ public class Classroom implements Comparable<Classroom> {
     private int _number;
     private Set<Student> _students;
     private Set<Teacher> _teachers;
+    private Teacher _headTeacher;
     
     public Classroom(final Level l, final int num) {
         _level = l;
@@ -35,6 +36,14 @@ public class Classroom implements Comparable<Classroom> {
         _number = Integer.valueOf(cl.substring(2, cl.length()));
         _students = new TreeSet<>();
         _teachers = new TreeSet<>();
+    }
+
+    public Teacher getHeadTeacher() {
+        return _headTeacher;
+    }
+
+    public void setHeadTeacher(Teacher _headTeacher) {
+        this._headTeacher = _headTeacher;
     }
     
     public Level getLevel() {

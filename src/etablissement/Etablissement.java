@@ -6,6 +6,8 @@
 
 package etablissement;
 
+import java.util.Arrays;
+import person.AuthorizedPerson;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
@@ -27,8 +29,8 @@ public class Etablissement {
         _classes.add(c);
     }
     
-    public void addAuthorizedPerson(AuthorizedPerson p) {
-        _authorizedPersons.add(p);
+    public void addAuthorizedPerson(AuthorizedPerson... pPersons) {
+        _authorizedPersons.addAll(Arrays.asList(pPersons));
     }
 
     public Set<Classroom> getClasses() {

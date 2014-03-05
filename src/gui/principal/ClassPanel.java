@@ -9,6 +9,7 @@ package gui.principal;
 import etablissement.Classroom;
 import etablissement.Etablissement;
 import etablissement.Level;
+import gui.renderer.TeacherListRenderer;
 import java.util.Iterator;
 import javax.swing.DefaultListModel;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -79,16 +80,16 @@ public class ClassPanel extends javax.swing.JPanel {
 
         jPanel1.setLayout(new java.awt.GridLayout(2, 1));
 
+        listStudents.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         listStudents.setModel(new DefaultListModel());
         jScrollPane3.setViewportView(listStudents);
 
         jPanel1.add(jScrollPane3);
 
-        listTeachers.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
+        listTeachers.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        listTeachers.setModel(new DefaultListModel());
+        listTeachers.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        listTeachers.setCellRenderer(new TeacherListRenderer());
         jScrollPane4.setViewportView(listTeachers);
 
         jPanel1.add(jScrollPane4);
@@ -109,6 +110,7 @@ public class ClassPanel extends javax.swing.JPanel {
             Classroom c = _etablissement.getClass(new Classroom((String)nodeInfo));
             listStudents.setListData(c.getStudents().toArray());
             listTeachers.setListData(c.getTeachers().toArray());
+            ((TeacherListRenderer)(listTeachers.getCellRenderer())).setClass(c);
         } else {
             listStudents.setVisible(false);
             listTeachers.setVisible(false);

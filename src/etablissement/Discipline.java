@@ -12,4 +12,22 @@ package etablissement;
  */
 public class Discipline {
     private String _name;
+
+    public Discipline(String _name) {
+        this._name = _name;
+    }
+
+    public String getName() {
+        return _name;
+    }
+
+    public void setName(String _name) {
+        this._name = _name;
+    }
+    
+    @Override
+    public String toString() {
+        return _name;
+    }
+    
 }

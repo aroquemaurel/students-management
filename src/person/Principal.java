@@ -6,8 +6,6 @@
 
 package person;
 
-import etablissement.AuthorizedPerson;
-
 /**
  *
  * @author aroquemaurel

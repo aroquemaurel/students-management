@@ -6,16 +6,26 @@
 
 package person;
 
-import etablissement.AuthorizedPerson;
+import etablissement.Discipline;
 
 /**
  *
  * @author aroquemaurel
  */
 public class Teacher extends AuthorizedPerson {
-
+    Discipline _discipline;
+    
     public Teacher(String _firstName, String _lastName, String password) {
         super(_firstName, _lastName, password);
     }
     
+    public Teacher(String firstName, String lastName, String password, Discipline discipline) {
+        super(firstName, lastName, password);
+        _discipline = discipline;
+    }
+    
+    @Override
+    public String toString() {
+        return super.toString()+ " ("+_discipline.toString()+")";
+    }
 }
