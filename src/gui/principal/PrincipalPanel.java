@@ -34,8 +34,8 @@ public class PrincipalPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         treeClasses = new javax.swing.JTree();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        classPanel1 = new gui.principal.ClassPanel();
-        teachersPanel1 = new gui.principal.TeachersPanel();
+        classPanel1 = new gui.principal.classrooms.ClassPanel();
+        teachersPanel1 = new gui.principal.teachers.TeachersPanel();
 
         jScrollPane1.setViewportView(treeClasses);
 
@@ -49,10 +49,10 @@ public class PrincipalPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private gui.principal.ClassPanel classPanel1;
+    private gui.principal.classrooms.ClassPanel classPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private gui.principal.TeachersPanel teachersPanel1;
+    private gui.principal.teachers.TeachersPanel teachersPanel1;
     private javax.swing.JTree treeClasses;
     // End of variables declaration//GEN-END:variables
 }

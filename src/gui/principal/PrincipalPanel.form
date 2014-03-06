@@ -38,7 +38,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Component class="gui.principal.ClassPanel" name="classPanel1">
+        <Component class="gui.principal.classrooms.ClassPanel" name="classPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Classes">
@@ -47,7 +47,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="gui.principal.TeachersPanel" name="teachersPanel1">
+        <Component class="gui.principal.teachers.TeachersPanel" name="teachersPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Professeurs">

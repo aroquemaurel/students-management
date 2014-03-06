@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package gui.principal;
+package gui.principal.teachers;
 
 import gui.MainFrame;
 import gui.models.TeachersTableModel;
