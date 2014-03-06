@@ -94,23 +94,25 @@ public class ClassPanel extends javax.swing.JPanel {
     private void fillDataTree() {
         DefaultMutableTreeNode racine = new DefaultMutableTreeNode("Root");
         DefaultMutableTreeNode currentNode = null;
-        Iterator it = etablissement.getClasses().iterator();
-        Level currentLevel = null;
-        Classroom currentClass;
         
-        while(it.hasNext()) {
-            currentClass = (Classroom)it.next();
-            
-            // Si premièré itération, ou nouveau niveau
-            if(currentLevel == null || !currentLevel.equals(currentClass.getLevel())) {
-                currentLevel = currentClass.getLevel();
-                currentNode = new DefaultMutableTreeNode(currentLevel.toString());
-                racine.add(currentNode);
-            } 
-            
-            currentNode.add(new DefaultMutableTreeNode(currentClass.toString()));
+        if(etablissement != null) { // Pour corriger un problème de Matisse.
+            Iterator it = etablissement.getClasses().iterator();
+            Level currentLevel = null;
+            Classroom currentClass;
+
+            while(it.hasNext()) {
+                currentClass = (Classroom)it.next();
+
+                // Si premièré itération, ou nouveau niveau
+                if(currentLevel == null || !currentLevel.equals(currentClass.getLevel())) {
+                    currentLevel = currentClass.getLevel();
+                    currentNode = new DefaultMutableTreeNode(currentLevel.toString());
+                    racine.add(currentNode);
+                } 
+
+                currentNode.add(new DefaultMutableTreeNode(currentClass.toString()));
+            }
         }
-        
         treeClass.setModel(new DefaultTreeModel(racine));
         treeClass.setRootVisible(false);
         expandTree();

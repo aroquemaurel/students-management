@@ -8,6 +8,7 @@ package gui.principal;
 
 import gui.MainFrame;
 import gui.models.TeachersTableModel;
+import javax.swing.JTable;
 
 /**
  *
@@ -20,6 +21,13 @@ public class TeachersPanel extends javax.swing.JPanel {
     public TeachersPanel() {
         initComponents();
         tableTeachers.setVisible(true);
+        
+        if(MainFrame.etablissement != null)
+            tableTeachers.setModel(new TeachersTableModel(MainFrame.etablissement.getTeachers()));
+    }
+
+    public JTable getTableTeachers() {
+        return tableTeachers;
     }
 
     /**
@@ -33,17 +41,37 @@ public class TeachersPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tableTeachers = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
-        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
+        setLayout(new java.awt.BorderLayout());
 
-        tableTeachers.setModel(new TeachersTableModel(MainFrame.etablissement.getTeachers()));
         jScrollPane1.setViewportView(tableTeachers);
 
-        add(jScrollPane1);
+        add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel1.add(filler1);
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/add.png"))); // NOI18N
+        jButton2.setText("Ajouter");
+        jPanel1.add(jButton2);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/remove.png"))); // NOI18N
+        jButton1.setText("Supprimer");
+        jPanel1.add(jButton1);
+
+        add(jPanel1, java.awt.BorderLayout.SOUTH);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableTeachers;
     // End of variables declaration//GEN-END:variables

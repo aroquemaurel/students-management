@@ -21,7 +21,11 @@ public class MainFrame extends javax.swing.JFrame {
      * @param e l'établissement
      */
     public MainFrame(Etablissement e) {
-        etablissement = e;
+        if(e == null) {
+            etablissement = new Etablissement();
+        } else {
+            etablissement = e;
+        }
         
         initComponents();
     }
@@ -38,7 +42,7 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         connexionPanel1 = new gui.ConnexionPanel();
-        principalFrame1 = new gui.principal.PrincipalFrame();
+        principalFrame1 = new gui.principal.PrincipalPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         actionDeconnexion = new javax.swing.JMenuItem();
@@ -116,7 +120,6 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void actionDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionDeconnexionActionPerformed
         ((CardLayout)(jPanel1.getLayout())).first(jPanel1);
-        
     }//GEN-LAST:event_actionDeconnexionActionPerformed
 
     public void launch() {
@@ -143,6 +146,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
-    private gui.principal.PrincipalFrame principalFrame1;
+    private gui.principal.PrincipalPanel principalFrame1;
     // End of variables declaration//GEN-END:variables
 }
