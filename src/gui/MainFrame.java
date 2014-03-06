@@ -7,6 +7,9 @@
 package gui;
 
 import etablissement.Etablissement;
+import gui.principal.classrooms.AddClassDialog;
+import gui.principal.classrooms.AddStudentDialog;
+import gui.principal.teachers.AddTeacherDialog;
 import java.awt.CardLayout;
 
 /**
@@ -91,12 +94,25 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMenu2.setText("Classes");
 
+        actionNewClass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/add.png"))); // NOI18N
         actionNewClass.setText("Nouvelle classe");
+        actionNewClass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actionNewClassActionPerformed(evt);
+            }
+        });
         jMenu2.add(actionNewClass);
 
-        actionAddStudent.setText("Ajouter un élève");
+        actionAddStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/add.png"))); // NOI18N
+        actionAddStudent.setText("Nouvel élève");
+        actionAddStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actionAddStudentActionPerformed(evt);
+            }
+        });
         jMenu2.add(actionAddStudent);
 
+        actionAddTeacher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/add.png"))); // NOI18N
         actionAddTeacher.setText("Ajouter un enseignant");
         jMenu2.add(actionAddTeacher);
 
@@ -104,7 +120,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMenu3.setText("Professeurs");
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/add.png"))); // NOI18N
         jMenuItem4.setText("Ajouter un professeur");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem4);
 
         jMenuBar1.add(jMenu3);
@@ -121,6 +143,18 @@ public class MainFrame extends javax.swing.JFrame {
     private void actionDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionDeconnexionActionPerformed
         ((CardLayout)(jPanel1.getLayout())).first(jPanel1);
     }//GEN-LAST:event_actionDeconnexionActionPerformed
+
+    private void actionNewClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionNewClassActionPerformed
+        (new AddClassDialog(this, true)).setVisible(true);
+    }//GEN-LAST:event_actionNewClassActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        (new AddTeacherDialog(this, true)).setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void actionAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionAddStudentActionPerformed
+        (new AddStudentDialog(this, true)).setVisible(true);
+    }//GEN-LAST:event_actionAddStudentActionPerformed
 
     public void launch() {
                 /* Create and display the form */

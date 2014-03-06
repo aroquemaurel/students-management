@@ -10,12 +10,13 @@ package gui.principal.classrooms;
  *
  * @author aroquemaurel
  */
-public class addClass extends javax.swing.JFrame {
+public class AddClassDialog extends javax.swing.JDialog {
 
     /**
-     * Creates new form addClass
+     * Creates new form AddClassFrame
      */
-    public addClass() {
+    public AddClassDialog(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -34,29 +35,26 @@ public class addClass extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         filler8 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 20));
         jPanel3 = new javax.swing.JPanel();
-        jComboBox2 = new javax.swing.JComboBox();
+        level = new javax.swing.JComboBox();
         jPanel4 = new javax.swing.JPanel();
         filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 20));
         jLabel2 = new javax.swing.JLabel();
         filler7 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         jPanel6 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox();
+        principalTeacher = new javax.swing.JComboBox();
         jPanel5 = new javax.swing.JPanel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         jButton1 = new javax.swing.JButton();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 32767));
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Ajouter une classe");
-        setMaximumSize(new java.awt.Dimension(100, 300));
-        setMinimumSize(new java.awt.Dimension(100, 300));
-        setPreferredSize(new java.awt.Dimension(100, 300));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setModal(true);
         setResizable(false);
 
-        jPanel1.setLayout(new java.awt.GridLayout(2, 2));
+        jPanel1.setLayout(new java.awt.GridLayout(3, 2));
 
-        jPanel2.setMaximumSize(new java.awt.Dimension(32835, 20));
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
         jPanel2.add(filler3);
 
@@ -68,9 +66,9 @@ public class addClass extends javax.swing.JFrame {
 
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox2.setMaximumSize(new java.awt.Dimension(32767, 20));
-        jPanel3.add(jComboBox2);
+        level.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        level.setMaximumSize(new java.awt.Dimension(32767, 20));
+        jPanel3.add(level);
 
         jPanel1.add(jPanel3);
 
@@ -86,9 +84,9 @@ public class addClass extends javax.swing.JFrame {
 
         jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.setMaximumSize(new java.awt.Dimension(32767, 20));
-        jPanel6.add(jComboBox1);
+        principalTeacher.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        principalTeacher.setMaximumSize(new java.awt.Dimension(32767, 20));
+        jPanel6.add(principalTeacher);
 
         jPanel1.add(jPanel6);
 
@@ -104,6 +102,11 @@ public class addClass extends javax.swing.JFrame {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/cancel.png"))); // NOI18N
         jButton2.setText("Annuler");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton2);
 
         getContentPane().add(jPanel5, java.awt.BorderLayout.SOUTH);
@@ -111,40 +114,10 @@ public class addClass extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(addClass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(addClass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(addClass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(addClass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new addClass().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
@@ -155,8 +128,6 @@ public class addClass extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler8;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -165,5 +136,7 @@ public class addClass extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JComboBox level;
+    private javax.swing.JComboBox principalTeacher;
     // End of variables declaration//GEN-END:variables
 }
