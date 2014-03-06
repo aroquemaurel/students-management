@@ -34,35 +34,35 @@ public class addTeacher extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         filler14 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         jPanel2 = new javax.swing.JPanel();
-        jTextField3 = new javax.swing.JTextField();
+        lastname = new javax.swing.JTextField();
         filler7 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         jPanel3 = new javax.swing.JPanel();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 20));
         jLabel2 = new javax.swing.JLabel();
         filler15 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         jPanel4 = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
+        firstname = new javax.swing.JTextField();
         filler8 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         jPanel5 = new javax.swing.JPanel();
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 20));
         jLabel3 = new javax.swing.JLabel();
         filler16 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         jPanel7 = new javax.swing.JPanel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        password = new javax.swing.JPasswordField();
         filler9 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         jPanel6 = new javax.swing.JPanel();
         filler5 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 20));
         jLabel5 = new javax.swing.JLabel();
         filler17 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         jPanel8 = new javax.swing.JPanel();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        passwordConfirm = new javax.swing.JPasswordField();
         filler10 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 20));
         jPanel9 = new javax.swing.JPanel();
         filler6 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 20));
         jLabel4 = new javax.swing.JLabel();
         filler18 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         jPanel10 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        discipline = new javax.swing.JTextField();
         filler11 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         jPanel13 = new javax.swing.JPanel();
         filler12 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
@@ -92,8 +92,8 @@ public class addTeacher extends javax.swing.JFrame {
         jPanel2.setMaximumSize(new java.awt.Dimension(2147483647, 20));
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
 
-        jTextField3.setMaximumSize(new java.awt.Dimension(2147483647, 20));
-        jPanel2.add(jTextField3);
+        lastname.setMaximumSize(new java.awt.Dimension(2147483647, 20));
+        jPanel2.add(lastname);
         jPanel2.add(filler7);
 
         jPanel11.add(jPanel2);
@@ -111,8 +111,8 @@ public class addTeacher extends javax.swing.JFrame {
         jPanel4.setMaximumSize(new java.awt.Dimension(2147483647, 20));
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
 
-        jTextField2.setMaximumSize(new java.awt.Dimension(2147483647, 20));
-        jPanel4.add(jTextField2);
+        firstname.setMaximumSize(new java.awt.Dimension(2147483647, 20));
+        jPanel4.add(firstname);
         jPanel4.add(filler8);
 
         jPanel11.add(jPanel4);
@@ -130,8 +130,8 @@ public class addTeacher extends javax.swing.JFrame {
         jPanel7.setMaximumSize(new java.awt.Dimension(2147483647, 20));
         jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
 
-        jPasswordField1.setMaximumSize(new java.awt.Dimension(2147483647, 20));
-        jPanel7.add(jPasswordField1);
+        password.setMaximumSize(new java.awt.Dimension(2147483647, 20));
+        jPanel7.add(password);
         jPanel7.add(filler9);
 
         jPanel11.add(jPanel7);
@@ -149,8 +149,8 @@ public class addTeacher extends javax.swing.JFrame {
         jPanel8.setMaximumSize(new java.awt.Dimension(2147483647, 20));
         jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.LINE_AXIS));
 
-        jPasswordField2.setMaximumSize(new java.awt.Dimension(2147483647, 20));
-        jPanel8.add(jPasswordField2);
+        passwordConfirm.setMaximumSize(new java.awt.Dimension(2147483647, 20));
+        jPanel8.add(passwordConfirm);
         jPanel8.add(filler10);
 
         jPanel11.add(jPanel8);
@@ -168,8 +168,8 @@ public class addTeacher extends javax.swing.JFrame {
         jPanel10.setMaximumSize(new java.awt.Dimension(2147483647, 20));
         jPanel10.setLayout(new javax.swing.BoxLayout(jPanel10, javax.swing.BoxLayout.LINE_AXIS));
 
-        jTextField1.setMaximumSize(new java.awt.Dimension(2147483647, 20));
-        jPanel10.add(jTextField1);
+        discipline.setMaximumSize(new java.awt.Dimension(2147483647, 20));
+        jPanel10.add(discipline);
         jPanel10.add(filler11);
 
         jPanel11.add(jPanel10);
@@ -180,7 +180,7 @@ public class addTeacher extends javax.swing.JFrame {
         jPanel13.add(filler12);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/add.png"))); // NOI18N
-        jButton1.setText("Ajouter le professeur");
+        jButton1.setText("Ajouter l'enseignant");
         jPanel13.add(jButton1);
         jPanel13.add(filler13);
 
@@ -229,6 +229,7 @@ public class addTeacher extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField discipline;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler10;
     private javax.swing.Box.Filler filler11;
@@ -246,6 +247,7 @@ public class addTeacher extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler7;
     private javax.swing.Box.Filler filler8;
     private javax.swing.Box.Filler filler9;
+    private javax.swing.JTextField firstname;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -265,10 +267,8 @@ public class addTeacher extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField lastname;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JPasswordField passwordConfirm;
     // End of variables declaration//GEN-END:variables
 }
