@@ -70,8 +70,7 @@ public class ClassPanel extends javax.swing.JPanel {
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void treeClassValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_treeClassValueChanged
+    public void updateClassroom() {
         DefaultMutableTreeNode node = (DefaultMutableTreeNode) treeClass.getLastSelectedPathComponent();
         if (node == null) {   //Nothing is selected.  
             return;
@@ -89,9 +88,12 @@ public class ClassPanel extends javax.swing.JPanel {
             listStudents.setVisible(false);
             listTeachers.setVisible(false);
         }
+    }
+    private void treeClassValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_treeClassValueChanged
+        updateClassroom();
     }//GEN-LAST:event_treeClassValueChanged
 
-    private void fillDataTree() {
+    public void fillDataTree() {
         DefaultMutableTreeNode racine = new DefaultMutableTreeNode("Root");
         DefaultMutableTreeNode currentNode = null;
         

@@ -7,6 +7,7 @@
 package gui;
 
 import etablissement.Etablissement;
+import gui.principal.PrincipalPanel;
 import gui.principal.classrooms.AddClassDialog;
 import gui.principal.classrooms.AddStudentDialog;
 import gui.principal.teachers.AddTeacherDialog;
@@ -155,6 +156,10 @@ public class MainFrame extends javax.swing.JFrame {
     private void actionAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionAddStudentActionPerformed
         (new AddStudentDialog(this, true)).setVisible(true);
     }//GEN-LAST:event_actionAddStudentActionPerformed
+
+    public PrincipalPanel getPrincipalFrame1() {
+        return principalFrame1;
+    }
 
     public void launch() {
                 /* Create and display the form */

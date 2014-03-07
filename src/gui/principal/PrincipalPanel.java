@@ -8,6 +8,7 @@ package gui.principal;
 
 import gui.MainFrame;
 import gui.models.TeachersTableModel;
+import gui.principal.classrooms.ClassPanel;
 
 /**
  *
@@ -46,6 +47,10 @@ public class PrincipalPanel extends javax.swing.JPanel {
 
         add(jTabbedPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    public ClassPanel getClassPanel1() {
+        return classPanel1;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

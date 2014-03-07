@@ -6,6 +6,10 @@
 
 package gui.principal.classrooms;
 
+import etablissement.Classroom;
+import gui.MainFrame;
+import person.Student;
+
 /**
  *
  * @author aroquemaurel
@@ -18,6 +22,7 @@ public class AddStudentDialog extends javax.swing.JDialog {
     public AddStudentDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        fillClassCombo();
     }
 
     /**
@@ -116,7 +121,6 @@ public class AddStudentDialog extends javax.swing.JDialog {
         jPanel6.setMaximumSize(new java.awt.Dimension(32787, 20));
         jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
 
-        classroom.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         classroom.setMaximumSize(new java.awt.Dimension(32767, 20));
         jPanel6.add(classroom);
         jPanel6.add(filler11);
@@ -130,6 +134,11 @@ public class AddStudentDialog extends javax.swing.JDialog {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/add.png"))); // NOI18N
         jButton1.setText("Ajouter un élève");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton1);
         jPanel2.add(filler2);
 
@@ -150,6 +159,13 @@ public class AddStudentDialog extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Student s = new Student(firstname.getText(), lastname.getText());
+        MainFrame.etablissement.getClass(new Classroom(classroom.getSelectedItem().toString())).addStudent(s);
+        dispose();
+        ((MainFrame)getParent()).getPrincipalFrame1().getClassPanel1().updateClassroom();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,4 +238,11 @@ public class AddStudentDialog extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JTextField lastname;
     // End of variables declaration//GEN-END:variables
+
+    private void fillClassCombo() {
+        for(Classroom c : MainFrame.etablissement.getClasses()) {
+            classroom.addItem(c);    
+        }
+        
+    }
 }
