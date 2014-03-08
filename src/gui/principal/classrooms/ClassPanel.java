@@ -19,7 +19,7 @@ import javax.swing.tree.DefaultTreeModel;
  *
  * @author aroquemaurel
  */
-public class ClassPanel extends javax.swing.JPanel {
+public final class ClassPanel extends javax.swing.JPanel {
     /**
      * Creates new form ClassPanel
      */

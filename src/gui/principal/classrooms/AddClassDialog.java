@@ -6,6 +6,12 @@
 
 package gui.principal.classrooms;
 
+import etablissement.Classroom;
+import etablissement.Level;
+import gui.MainFrame;
+import java.util.Set;
+import person.Teacher;
+
 /**
  *
  * @author aroquemaurel
@@ -14,10 +20,13 @@ public class AddClassDialog extends javax.swing.JDialog {
 
     /**
      * Creates new form AddClassFrame
+     * @param parent
+     * @param modal
      */
     public AddClassDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        fillTeachers();
     }
 
     /**
@@ -66,7 +75,7 @@ public class AddClassDialog extends javax.swing.JDialog {
 
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
 
-        level.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        level.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sixième", "Cinquième", "Quatrième", "Troisième" }));
         level.setMaximumSize(new java.awt.Dimension(32767, 20));
         jPanel3.add(level);
 
@@ -84,7 +93,6 @@ public class AddClassDialog extends javax.swing.JDialog {
 
         jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
 
-        principalTeacher.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         principalTeacher.setMaximumSize(new java.awt.Dimension(32767, 20));
         jPanel6.add(principalTeacher);
 
@@ -97,6 +105,11 @@ public class AddClassDialog extends javax.swing.JDialog {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/add.png"))); // NOI18N
         jButton1.setText("Ajouter la classe");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton1);
         jPanel5.add(filler2);
 
@@ -117,6 +130,15 @@ public class AddClassDialog extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Set<Classroom> classrooms = MainFrame.etablissement.getClasses();
+        Level l = new Level((String) level.getSelectedItem());
+        classrooms.add(new Classroom(l, 
+                MainFrame.etablissement.getNbClassLevel(l)));
+        ((MainFrame)(getParent())).getPrincipalFrame1().getClassPanel1().fillDataTree();
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -139,4 +161,10 @@ public class AddClassDialog extends javax.swing.JDialog {
     private javax.swing.JComboBox level;
     private javax.swing.JComboBox principalTeacher;
     // End of variables declaration//GEN-END:variables
+
+    private void fillTeachers() {
+        for(Teacher t : MainFrame.etablissement.getTeachers()) {
+            principalTeacher.addItem(t);
+        }
+    }
 }

@@ -50,6 +50,28 @@ public class Etablissement {
         return ret;
     }
 
+    public int getNbClassLevel(final Level l) {
+        Iterator it = _classes.iterator();
+        boolean found = false;
+        boolean currentLevel = false;
+        Classroom c;
+        int ret = 1;
+        
+        while(it.hasNext() && !found) {
+            c = (Classroom) it.next();
+            
+            if(currentLevel) {
+                ++ret;
+                found = !(l.equals(c.getLevel()));
+            }
+            currentLevel = l.equals(c.getLevel());
+        }
+    if(!it.hasNext()) {
+        ++ret;
+    }
+        return ret;
+    }
+    
     public Set<Teacher> getTeachers() {
         return _teachers;
     }

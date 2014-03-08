@@ -72,7 +72,7 @@ public class ManagementStudents {
         buffClass.setHeadTeacher(t1);
         e.addClass(buffClass);
         
-        buffClass = new Classroom("5e3");
+        buffClass = new Classroom("5e2");
         buffClass.addStudent(new Student("Burris","Hedy"),
         new Student("Curtis","Jared"),
 	new Student("Wallace","Barrett"));
