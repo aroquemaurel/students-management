@@ -1,0 +1,78 @@
+\documentclass[12pt,a4paper,openany]{book}
+
+\usepackage{lmodern}
+\usepackage[svgnames]{xcolor} % Required to specify font color
+\input{/home/aroquemaurel/cours/includesLaTeX/couleurs.tex}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage[top=1.7cm, bottom=1.7cm, left=1.7cm, right=1.7cm]{geometry}
+\usepackage{verbatim}
+\usepackage[urlbordercolor={1 1 1}, linkbordercolor={1 1 1}, linkcolor=vert1, urlcolor=bleu, colorlinks=true]{hyperref}
+\usepackage{tikz} %Vectoriel
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{multido}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{graphicx} % Required for box manipulation
+
+\newcommand{\titre}{Programmation événementielle}
+\newcommand{\subtitle}{DM \no{}1}
+\newcommand{\auteur}{Antoine de \bsc{Roquemaurel}}
+\newcommand{\formation}{L3 Informatique}
+\newcommand{\semestre}{6}
+\newcommand{\annee}{2014}
+\newcommand{\prof}{}
+
+
+\newcommand{\pole}{}
+\newcommand{\sigle}{pge}
+\input{/home/aroquemaurel/cours/includesLaTeX/listings.tex} %prise en charge du langage algo
+\input{/home/aroquemaurel/cours/includesLaTeX/l2/cours.tex}
+\input{/home/aroquemaurel/cours/includesLaTeX/remarquesExempleAttention.tex}
+\input{/home/aroquemaurel/cours/includesLaTeX/polices.tex}
+\input{/home/aroquemaurel/cours/includesLaTeX/affichageChapitre.tex}
+\input{/home/aroquemaurel/cours/includesLaTeX/couverture.tex}
+\makeatother
+
+\begin{document}
+	\thispagestyle{empty} % Removes page numbers
+	\titleBC 
+	\setcounter{tocdepth}{2}
+	\setcounter{secnumdepth}{3}
+	\chapter*{Avant-propos}
+	Ce rapport contient les choix d'implémentation et de conception pour un projet dans le cadre de la L3 Informatique parcours Ingénierie des Systèmes
+	Informatiques de l'université Toulouse III -- Paul Sabatier.
+
+	Il s'agit d'un logiciel permettant la gestion des bulletins d'un établissement scolaire.
+
+	Celui-ci doit être développé en Java en utilisant la bibliothèque graphique \texttt{Swing}, ceci à l'aide de l'éditeur WYSIWYG Matisse présent dans
+	\textit{Netbeans}. Ci-joint à ce rapport est donc présent les sources du logiciel sous forme de projet Netbeans.
+
+	\tableofcontents
+	\chapter{Conception}
+		% TODO diagramme de classe
+		\section{Les données métiers}
+		\section{L'interface Homme Machine}
+			\subsection{Les formulaires}
+			\subsection{Les modèles}
+			\subsection{Les rendus}
+	\chapter{Choix d'interface}
+	\chapter{Données de tests}
+	Afin de pouvoir tester le logiciel dans de bonnes conditions, des données de tests sont insérés au lancement du logiciel. Pour cela, il faut
+	exécuter la méthode \texttt{main} présent dans le package \texttt{managementStudent}. Celle-ci va insérer automatiquement un proviseur, des
+	professeurs, des classes avec leurs élèves associés ainsi que des notes : Toutes les données de lectures peuvent être essayés, il est ensuite
+	possible d'ajouter et d'éditer des données depuis le logiciel.
+
+	\begin{remarque}
+		Il n'était demandé aucune sérialisation ou stockage des données dans une base de donées, ainsi une fois le logiciel fermée, toutes les données
+		sont définitivement perdues. Le lancement du logiciel réinsèrera le jeu d'essais.
+
+		Il aurait été possible de stocker les données à l'aide d'une base \textit{Sqlite} afin d'avoir la puissance et la souplesse des bases de
+		données, ou une simple sérialisation de nos objets aurait pu faire l'affaire: ces deux solutions ont l'avantage d'être rapide à mettre en place.
+	\end{remarque}
+\end{document}
+
+

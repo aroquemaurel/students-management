@@ -6,6 +6,7 @@
 
 package etablissement;
 
+import gui.MainFrame;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Set;
@@ -74,6 +75,20 @@ public class Etablissement {
     
     public Set<Teacher> getTeachers() {
         return _teachers;
+    }
+    
+    public Teacher getTeacherById(final int id) {
+        Set<Teacher> teachers = MainFrame.etablissement.getTeachers();
+        Iterator it = teachers.iterator();
+        Teacher teach = null;
+        int i = 0;
+
+        while(it.hasNext() && i <= id) {
+            teach = (Teacher) it.next();
+            ++i;
+        }
+        
+        return teach;
     }
 
     public Principal getPrincipal() {

@@ -9,6 +9,7 @@ package gui.principal.classrooms;
 import etablissement.Classroom;
 import etablissement.Level;
 import gui.MainFrame;
+import java.util.Iterator;
 import java.util.Set;
 import person.Teacher;
 
@@ -134,8 +135,13 @@ public class AddClassDialog extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Set<Classroom> classrooms = MainFrame.etablissement.getClasses();
         Level l = new Level((String) level.getSelectedItem());
-        classrooms.add(new Classroom(l, 
-                MainFrame.etablissement.getNbClassLevel(l)));
+        Classroom newClass = new Classroom(l, MainFrame.etablissement.getNbClassLevel(l));
+        Teacher headTeach = MainFrame.etablissement.getTeacherById(principalTeacher.getSelectedIndex());
+        
+        newClass.addTeacher(headTeach);
+        newClass.setHeadTeacher(headTeach);
+        classrooms.add(newClass);
+        
         ((MainFrame)(getParent())).getPrincipalFrame1().getClassPanel1().fillDataTree();
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
