@@ -11,6 +11,7 @@ import gui.MainFrame;
 import static gui.MainFrame.currentPerson;
 import static gui.MainFrame.etablissement;
 import gui.Utils;
+import gui.renderer.ClassTreeRenderer;
 
 /**
  *
@@ -42,6 +43,7 @@ public class TeacherPanel extends javax.swing.JPanel {
         setLayout(new java.awt.BorderLayout());
 
         jScrollPane1.setViewportView(treeClass);
+        treeClass.setCellRenderer(new ClassTreeRenderer());
 
         add(jScrollPane1, java.awt.BorderLayout.WEST);
 
@@ -70,8 +72,8 @@ public class TeacherPanel extends javax.swing.JPanel {
 
     public static void fillTree() {
         if(MainFrame.etablissement != null && currentPerson != null && currentPerson instanceof Teacher) {
-            System.err.println("coucou");
-            Utils.fillDataTreeClass(((Teacher)(currentPerson)).getClass(etablissement), treeClass);
+            Utils.fillDataTreeClassWithDiscipline(((Teacher)(currentPerson)).getClass(etablissement), treeClass);
+            ((ClassTreeRenderer)(treeClass.getCellRenderer())).setTeacher((Teacher) currentPerson);
         }
     }
 }

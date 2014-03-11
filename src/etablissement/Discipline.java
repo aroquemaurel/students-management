@@ -10,7 +10,7 @@ package etablissement;
  *
  * @author aroquemaurel
  */
-public class Discipline {
+public class Discipline implements Comparable<Discipline> {
     private String _name;
 
     public Discipline(String _name) {
@@ -28,6 +28,11 @@ public class Discipline {
     @Override
     public String toString() {
         return _name;
+    }
+
+    @Override
+    public int compareTo(Discipline t) {
+        return _name.compareTo(t.getName());
     }
     
 }

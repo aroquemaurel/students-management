@@ -7,7 +7,6 @@
 package gui.renderer;
 
 import etablissement.classroom.Classroom;
-import etablissement.Etablissement;
 import java.awt.Component;
 import java.awt.Font;
 import javax.swing.DefaultListCellRenderer;
@@ -19,7 +18,7 @@ import javax.swing.JList;
  */
 public class TeacherListRenderer extends DefaultListCellRenderer {
     Classroom _class;
-
+    
     public void setClass(Classroom _class) {
         this._class = _class;
     }

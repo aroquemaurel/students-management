@@ -64,6 +64,12 @@ public class ConnexionPanel extends javax.swing.JPanel {
         jPanel1.add(jPanel2);
 
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
+
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
         jPanel3.add(txtName);
         jPanel3.add(filler1);
 
@@ -78,6 +84,12 @@ public class ConnexionPanel extends javax.swing.JPanel {
         jPanel1.add(jPanel5);
 
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
+
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
         jPanel4.add(txtPassword);
         jPanel4.add(filler2);
 
@@ -142,6 +154,14 @@ public class ConnexionPanel extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_btnConnexionActionPerformed
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        btnConnexionActionPerformed(evt);
+    }//GEN-LAST:event_txtPasswordActionPerformed
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        btnConnexionActionPerformed(evt);
+    }//GEN-LAST:event_txtNameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

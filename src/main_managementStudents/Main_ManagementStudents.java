@@ -33,7 +33,13 @@ public class Main_ManagementStudents {
         Teacher t4 = new Teacher("Velasquez","Armando", "password4", new Discipline("Français"));
         Teacher t5 = new Teacher("Winters","Galena", "password5", new Discipline("Histoire"));
         Teacher t6 = new Teacher("Teach","prof", "456", new Discipline("Histoire"));
-
+        Discipline d1 = new Discipline("Histoire");
+        Discipline d2 = new Discipline("Anglais");
+        Discipline d3 = new Discipline("Physique");
+        Discipline d4 = new Discipline("Géographie");
+        Discipline d5 = new Discipline("Maths");
+        Discipline d6 = new Discipline("SVT");
+        
         e.addAuthorizedPerson(t1, t2, t3, t4, t5, t6);
         e.setPrincipal(new Principal("Wright", "princ", "123"));
         
@@ -42,6 +48,7 @@ public class Main_ManagementStudents {
                         new Student("Winters","Vincent"),
                         new Student("Mcbride","Macon"),
                         new Student("Calhoun","Charissa"));
+        buffClass.addDiscipline(d1, d2);
         buffClass.addTeacher(t3, t4, t6);
         buffClass.setHeadTeacher(t3);
         e.addClass(buffClass);
@@ -52,6 +59,7 @@ public class Main_ManagementStudents {
                         new Student("Hartman","Moana"),
                         new Student("Graham","Coby"));
         buffClass.addTeacher(t1,t2,t3, t6);
+        buffClass.addDiscipline(d2, d3);
         buffClass.setHeadTeacher(t2);
         e.addClass(buffClass);
         
@@ -61,6 +69,7 @@ public class Main_ManagementStudents {
                         new Student("Nash","Tobias"),
                         new Student("Phelps","Isabelle"));
         buffClass.addTeacher(t2, t6);
+        buffClass.addDiscipline(d1, d2, d2, d3);
         buffClass.setHeadTeacher(t6);
         e.addClass(buffClass);
         
@@ -70,6 +79,7 @@ public class Main_ManagementStudents {
                         new Student("Bright","Naida"),
                         new Student("Smith","Jenette"));
         buffClass.addTeacher(t1, t5);
+        buffClass.addDiscipline(d1, d3, d2);
         buffClass.setHeadTeacher(t1);
         e.addClass(buffClass);
         
@@ -79,6 +89,8 @@ public class Main_ManagementStudents {
 	new Student("Wallace","Barrett"));
         buffClass.addTeacher(t4,t5, t6);
         buffClass.setHeadTeacher(t4);
+        buffClass.addDiscipline(d1, d3, d2, d4, d5);
+
         e.addClass(buffClass);
         
         return e;

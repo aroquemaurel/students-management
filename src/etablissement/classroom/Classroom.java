@@ -6,6 +6,7 @@
 
 package etablissement.classroom;
 
+import etablissement.Discipline;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Set;
@@ -22,6 +23,7 @@ public class Classroom implements Comparable<Classroom> {
     private int _number;
     private Set<Student> _students;
     private Set<Teacher> _teachers;
+    private Set<Discipline> _disciplines;
     private Teacher _headTeacher;
     
     public Classroom(final Level l, final int num) {
@@ -29,6 +31,7 @@ public class Classroom implements Comparable<Classroom> {
         _number = num;
         _students = new TreeSet<>();
         _teachers = new TreeSet<>();
+        _disciplines = new TreeSet<>();
     }
     
     public Classroom(final String cl) {
@@ -36,6 +39,7 @@ public class Classroom implements Comparable<Classroom> {
         _number = Integer.valueOf(cl.substring(2, cl.length()));
         _students = new TreeSet<>();
         _teachers = new TreeSet<>();
+        _disciplines = new TreeSet<>();
     }
 
     public Teacher getHeadTeacher() {
@@ -48,6 +52,10 @@ public class Classroom implements Comparable<Classroom> {
     
     public Level getLevel() {
         return _level;
+    }
+
+    public Set<Discipline> getDisciplines() {
+        return _disciplines;
     }
 
     public int getNumber() {
@@ -109,5 +117,9 @@ public class Classroom implements Comparable<Classroom> {
     
     public void addTeacher(Teacher... pTeachers) {
         _teachers.addAll(Arrays.asList(pTeachers));
+    }
+    
+    public void addDiscipline(Discipline... d) {
+        _disciplines.addAll(Arrays.asList(d));
     }
 }
