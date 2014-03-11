@@ -6,6 +6,8 @@
 
 package etablissement;
 
+import java.util.Objects;
+
 /**
  *
  * @author aroquemaurel
@@ -35,4 +37,17 @@ public class Discipline implements Comparable<Discipline> {
         return _name.compareTo(t.getName());
     }
     
+        
+    @Override
+    public boolean equals(Object o) {
+        return o instanceof Discipline && _name.equals(((Discipline)o).getName());
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this._name);
+        return hash;
+    }
+
 }

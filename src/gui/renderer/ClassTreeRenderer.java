@@ -6,8 +6,13 @@
 
 package gui.renderer;
 
+import etablissement.Discipline;
+import etablissement.classroom.Classroom;
 import etablissement.person.Teacher;
+import gui.MainFrame;
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
@@ -21,10 +26,18 @@ public class ClassTreeRenderer extends DefaultTreeCellRenderer {
       public Component getTreeCellRendererComponent(JTree tree,Object value,
               boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus) {
 
-        super.getTreeCellRendererComponent(tree, value, sel,expanded, leaf, row,hasFocus);
-
-          setIcon(null);
-        return this;
+        Component c = super.getTreeCellRendererComponent(tree, value, sel,expanded, leaf, row,hasFocus);
+        setIcon(null);
+        c.setFont(c.getFont().deriveFont(Font.PLAIN));
+        
+        if(_teacher != null) {
+            if(_teacher.getDiscipline().equals(new Discipline(value.toString()))) {
+                c.setForeground(Color.RED);
+            } else if(!leaf && MainFrame.etablissement.getClass(new Classroom(value.toString())).getHeadTeacher().equals(_teacher)) {
+                c.setFont(c.getFont().deriveFont(Font.BOLD));
+            }
+        }
+        return c;
     }
       
           
