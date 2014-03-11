@@ -4,16 +4,16 @@
  * and open the template in the editor.
  */
 
-package person;
+package etablissement.person;
 
 /**
  *
  * @author aroquemaurel
  */
-public class Student extends Person {
+public class Principal extends AuthorizedPerson {
 
-    public Student(String firstname, String lastname) {
-        super(firstname, lastname);
+    public Principal(String _firstName, String _lastName, String password) {
+        super(_firstName, _lastName, password);
     }
     
 }

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package person;
+package etablissement.person;
 
 import java.util.Objects;
 

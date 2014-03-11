@@ -6,7 +6,7 @@
 
 package gui.renderer;
 
-import etablissement.Classroom;
+import etablissement.classroom.Classroom;
 import etablissement.Etablissement;
 import java.awt.Component;
 import java.awt.Font;

@@ -7,19 +7,21 @@
 package gui;
 
 import etablissement.Etablissement;
+import etablissement.person.Person;
 import gui.principal.PrincipalPanel;
 import gui.principal.classrooms.AddClassDialog;
 import gui.principal.classrooms.AddStudentDialog;
 import gui.principal.teachers.AddTeacherDialog;
 import java.awt.CardLayout;
+import javax.swing.JPanel;
 
 /**
  *
  * @author aroquemaurel
  */
 public class MainFrame extends javax.swing.JFrame {
-
     public static Etablissement etablissement;
+    public static Person currentPerson;
     /**
      * Creates new form MainFrame
      * @param e l'établissement
@@ -47,6 +49,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         connexionPanel1 = new gui.ConnexionPanel();
         principalFrame1 = new gui.principal.PrincipalPanel();
+        teacherPanel1 = new gui.teachers.TeacherPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         actionDeconnexion = new javax.swing.JMenuItem();
@@ -67,6 +70,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.CardLayout());
         jPanel1.add(connexionPanel1, "card2");
         jPanel1.add(principalFrame1, "card3");
+        jPanel1.add(teacherPanel1, "card4");
 
         getContentPane().add(jPanel1, "card5");
 
@@ -170,7 +174,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
 
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem actionAddStudent;
     private javax.swing.JMenuItem actionAddTeacher;
@@ -186,5 +190,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private gui.principal.PrincipalPanel principalFrame1;
+    private gui.teachers.TeacherPanel teacherPanel1;
     // End of variables declaration//GEN-END:variables
 }

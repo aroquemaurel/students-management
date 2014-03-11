@@ -6,12 +6,12 @@
 
 package gui.principal.classrooms;
 
-import etablissement.Classroom;
-import etablissement.Level;
+import etablissement.classroom.Classroom;
+import etablissement.classroom.Level;
 import gui.MainFrame;
-import java.util.Iterator;
 import java.util.Set;
-import person.Teacher;
+import etablissement.person.Teacher;
+import gui.Utils;
 
 /**
  *
@@ -142,7 +142,8 @@ public class AddClassDialog extends javax.swing.JDialog {
         newClass.setHeadTeacher(headTeach);
         classrooms.add(newClass);
         
-        ((MainFrame)(getParent())).getPrincipalFrame1().getClassPanel1().fillDataTree();
+        Utils.fillDataTreeClass(MainFrame.etablissement.getClasses(), 
+                ((MainFrame)(getParent())).getPrincipalFrame1().getClassPanel1().getTreeClass());
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

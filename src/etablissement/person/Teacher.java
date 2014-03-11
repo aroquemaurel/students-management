@@ -4,9 +4,13 @@
  * and open the template in the editor.
  */
 
-package person;
+package etablissement.person;
 
 import etablissement.Discipline;
+import etablissement.Etablissement;
+import etablissement.classroom.Classroom;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
@@ -37,5 +41,14 @@ public class Teacher extends AuthorizedPerson {
         this._discipline = _discipline;
     }
     
-    
+    public Set<Classroom> getClass(Etablissement e) {
+        Set<Classroom> classes = e.getClasses();
+        Set<Classroom> ret = new TreeSet<>();
+        for(Classroom c : classes) {
+            if(c.getTeachers().contains(this)) {
+                ret.add(c);
+            }
+        }
+        return ret;
+    }
 }

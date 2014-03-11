@@ -6,6 +6,9 @@
 
 package gui;
 
+import etablissement.person.Teacher;
+import gui.principal.classrooms.ClassPanel;
+import gui.teachers.TeacherPanel;
 import java.awt.CardLayout;
 
 /**
@@ -118,13 +121,26 @@ public class ConnexionPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnexionActionPerformed
-        // TODO si bien connecté
-        
         CardLayout layout = ((CardLayout)getParent().getLayout());
         
-        // si proviseur
-      //  layout.next(getParent());
-        layout.next(getParent());
+        if(MainFrame.etablissement != null ) {
+            // si principal avec mdp correct
+            if(MainFrame.etablissement.getPrincipal().loginIsCorrect(txtName.getText(), txtPassword.getPassword())) {
+                MainFrame.currentPerson = MainFrame.etablissement.getPrincipal();
+                layout.next(getParent());
+            } else {
+                // si prof avec mdp correct
+                Teacher t = MainFrame.etablissement.getTeacherByName(txtName.getText());
+                if(t != null && t.loginIsCorrect(txtName.getText(), txtPassword.getPassword())) {
+                    layout.next(getParent());
+                    layout.next(getParent());
+                    MainFrame.currentPerson = t;
+                    TeacherPanel.fillTree();
+                } else { // login ou mdp incorrect
+                    // TODO password incorrect
+                }
+            }
+        }
     }//GEN-LAST:event_btnConnexionActionPerformed
 
 

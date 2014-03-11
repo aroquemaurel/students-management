@@ -6,6 +6,12 @@
 
 package gui.teachers;
 
+import etablissement.person.Teacher;
+import gui.MainFrame;
+import static gui.MainFrame.currentPerson;
+import static gui.MainFrame.etablissement;
+import gui.Utils;
+
 /**
  *
  * @author aroquemaurel
@@ -29,13 +35,13 @@ public class TeacherPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        treeClass = new javax.swing.JTree();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
         setLayout(new java.awt.BorderLayout());
 
-        jScrollPane1.setViewportView(jTree1);
+        jScrollPane1.setViewportView(treeClass);
 
         add(jScrollPane1, java.awt.BorderLayout.WEST);
 
@@ -55,11 +61,17 @@ public class TeacherPanel extends javax.swing.JPanel {
         add(jScrollPane2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTree jTree1;
+    private static javax.swing.JTree treeClass;
     // End of variables declaration//GEN-END:variables
+
+    public static void fillTree() {
+        if(MainFrame.etablissement != null && currentPerson != null && currentPerson instanceof Teacher) {
+            System.err.println("coucou");
+            Utils.fillDataTreeClass(((Teacher)(currentPerson)).getClass(etablissement), treeClass);
+        }
+    }
 }

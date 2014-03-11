@@ -6,9 +6,9 @@
 
 package gui.principal.classrooms;
 
-import etablissement.Classroom;
+import etablissement.classroom.Classroom;
 import gui.MainFrame;
-import person.Student;
+import etablissement.person.Student;
 
 /**
  *

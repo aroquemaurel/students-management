@@ -4,16 +4,14 @@
  * and open the template in the editor.
  */
 
-package person;
-
-import person.Person;
+package etablissement.person;
 
 /**
  *
  * @author aroquemaurel
  */
 public class AuthorizedPerson extends Person {
-    private String _password; 
+    private char[] _password; 
 
     public AuthorizedPerson(String _firstName, String _lastName) {
         super(_firstName, _lastName);
@@ -21,6 +19,10 @@ public class AuthorizedPerson extends Person {
     
     public AuthorizedPerson(String _firstName, String _lastName, String password) {
         super(_firstName, _lastName);
-        _password = password;
+        _password = password.toCharArray();
+    }
+    
+    public boolean loginIsCorrect(final String name, char[] password) {
+        return getLastName().equals(name) && java.util.Arrays.equals(_password, password);
     }
 }

@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 
-package etablissement;
+package etablissement.classroom;
 
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
-import person.Student;
-import person.Teacher;
+import etablissement.person.Student;
+import etablissement.person.Teacher;
 
 /**
  *

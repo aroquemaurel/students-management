@@ -6,13 +6,15 @@
 
 package etablissement;
 
+import etablissement.classroom.Classroom;
+import etablissement.classroom.Level;
 import gui.MainFrame;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
-import person.Principal;
-import person.Teacher;
+import etablissement.person.Principal;
+import etablissement.person.Teacher;
 
 /**
  *
@@ -78,8 +80,7 @@ public class Etablissement {
     }
     
     public Teacher getTeacherById(final int id) {
-        Set<Teacher> teachers = MainFrame.etablissement.getTeachers();
-        Iterator it = teachers.iterator();
+        Iterator it = _teachers.iterator();
         Teacher teach = null;
         int i = 0;
 
@@ -89,6 +90,17 @@ public class Etablissement {
         }
         
         return teach;
+    }
+    
+    public Teacher getTeacherByName(String lastname) {
+        Iterator it = _teachers.iterator();
+        Teacher teach = (Teacher) it.next();
+
+        while(it.hasNext() && !teach.getLastName().equals(lastname)) {
+            teach = (Teacher) it.next();
+        }
+
+        return !teach.getLastName().equals(lastname) ? null : teach;
     }
 
     public Principal getPrincipal() {

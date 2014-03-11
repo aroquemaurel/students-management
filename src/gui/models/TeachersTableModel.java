@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
-import person.Teacher;
+import etablissement.person.Teacher;
 
 /**
  *

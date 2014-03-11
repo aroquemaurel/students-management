@@ -4,23 +4,23 @@
  * and open the template in the editor.
  */
 
-package managementStudents;
+package main_managementStudents;
 
-import etablissement.Classroom;
+import etablissement.classroom.Classroom;
 import etablissement.Discipline;
 import etablissement.Etablissement;
 import gui.MainFrame;
-import person.Principal;
-import person.Student;
-import person.Teacher;
+import etablissement.person.Principal;
+import etablissement.person.Student;
+import etablissement.person.Teacher;
 
 /**
  *
  * @author aroquemaurel
  */
-public class ManagementStudents {
+public class Main_ManagementStudents {
     public static void main(String[] args) {
-        MainFrame f = new MainFrame(ManagementStudents.fillData());
+        MainFrame f = new MainFrame(Main_ManagementStudents.fillData());
         f.launch();
     }
     
@@ -32,16 +32,17 @@ public class ManagementStudents {
         Teacher t3 = new Teacher("Mcmillan","Victor", "password3", new Discipline("Anglais"));
         Teacher t4 = new Teacher("Velasquez","Armando", "password4", new Discipline("Français"));
         Teacher t5 = new Teacher("Winters","Galena", "password5", new Discipline("Histoire"));
-        
-        e.addAuthorizedPerson(t1, t2, t3, t4, t5);
-        e.setPrincipal(new Principal("Wright", "Hedy", "password"));
+        Teacher t6 = new Teacher("Teach","prof", "456", new Discipline("Histoire"));
+
+        e.addAuthorizedPerson(t1, t2, t3, t4, t5, t6);
+        e.setPrincipal(new Principal("Wright", "princ", "123"));
         
         buffClass = new Classroom("5e1");
         buffClass.addStudent(new Student("Skinner","Harriet"),
                         new Student("Winters","Vincent"),
                         new Student("Mcbride","Macon"),
                         new Student("Calhoun","Charissa"));
-        buffClass.addTeacher(t3, t4);
+        buffClass.addTeacher(t3, t4, t6);
         buffClass.setHeadTeacher(t3);
         e.addClass(buffClass);
         
@@ -50,7 +51,7 @@ public class ManagementStudents {
                         new Student("Mercado","Galena"),
                         new Student("Hartman","Moana"),
                         new Student("Graham","Coby"));
-        buffClass.addTeacher(t1,t2,t3);
+        buffClass.addTeacher(t1,t2,t3, t6);
         buffClass.setHeadTeacher(t2);
         e.addClass(buffClass);
         
@@ -59,8 +60,8 @@ public class ManagementStudents {
                         new Student("Wright","Hayes"),
                         new Student("Nash","Tobias"),
                         new Student("Phelps","Isabelle"));
-        buffClass.addTeacher(t2);
-        buffClass.setHeadTeacher(t2);
+        buffClass.addTeacher(t2, t6);
+        buffClass.setHeadTeacher(t6);
         e.addClass(buffClass);
         
         buffClass = new Classroom("4e1");
@@ -76,7 +77,7 @@ public class ManagementStudents {
         buffClass.addStudent(new Student("Burris","Hedy"),
         new Student("Curtis","Jared"),
 	new Student("Wallace","Barrett"));
-        buffClass.addTeacher(t4,t5);
+        buffClass.addTeacher(t4,t5, t6);
         buffClass.setHeadTeacher(t4);
         e.addClass(buffClass);
         
