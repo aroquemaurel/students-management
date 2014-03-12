@@ -13,9 +13,12 @@ import gui.MainFrame;
 import static gui.MainFrame.currentPerson;
 import static gui.MainFrame.etablissement;
 import gui.Utils;
-import gui.models.StudentsTableModel;
-import gui.renderer.ClassTreeRenderer;
-import gui.renderer.TeacherTableRenderer;
+import gui.data.editors.SpinnerEditor;
+import gui.data.models.StudentsTableModel;
+import gui.data.renderer.ClassTreeRenderer;
+import gui.data.renderer.TeacherTableRenderer;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 /**
@@ -85,8 +88,9 @@ public class TeacherPanel extends javax.swing.JPanel {
         Classroom c = MainFrame.etablissement.getClass(new Classroom((String)nodeInfo));
         model.setStudents(c.getStudents());
         model.setIsHeadTeach(c.getHeadTeacher().equals(MainFrame.currentPerson));
-        
-        
+        for(int i = 3 ; i < model.getColumnCount() ; ++i) {
+            jTable1.getColumnModel().getColumn(i).setCellEditor(new SpinnerEditor());
+        }
     }//GEN-LAST:event_treeClassValueChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

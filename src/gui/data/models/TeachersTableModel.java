@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package gui.models;
+package gui.data.models;
 
 import java.util.ArrayList;
 import java.util.Iterator;

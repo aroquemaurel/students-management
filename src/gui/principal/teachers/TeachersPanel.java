@@ -7,7 +7,7 @@
 package gui.principal.teachers;
 
 import gui.MainFrame;
-import gui.models.TeachersTableModel;
+import gui.data.models.TeachersTableModel;
 import javax.swing.JTable;
 
 /**

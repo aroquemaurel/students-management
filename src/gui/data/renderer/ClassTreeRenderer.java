@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package gui.renderer;
+package gui.data.renderer;
 
 import etablissement.Discipline;
 import etablissement.classroom.Classroom;

@@ -9,7 +9,7 @@ package gui.principal.classrooms;
 import etablissement.classroom.Classroom;
 import gui.MainFrame;
 import gui.Utils;
-import gui.renderer.TeacherTableRenderer;
+import gui.data.renderer.TeacherTableRenderer;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 
