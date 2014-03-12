@@ -13,6 +13,7 @@ import gui.MainFrame;
 import etablissement.person.Principal;
 import etablissement.person.Student;
 import etablissement.person.Teacher;
+import java.util.Iterator;
 
 /**
  *
@@ -44,52 +45,61 @@ public class Main_ManagementStudents {
         e.setPrincipal(new Principal("Wright", "princ", "123"));
         
         buffClass = new Classroom("5e1");
+        buffClass.addDiscipline(d1, d2);
+
         buffClass.addStudent(new Student("Skinner","Harriet"),
                         new Student("Winters","Vincent"),
                         new Student("Mcbride","Macon"),
                         new Student("Calhoun","Charissa"));
-        buffClass.addDiscipline(d1, d2);
         buffClass.addTeacher(t3, t4, t6);
         buffClass.setHeadTeacher(t3);
         e.addClass(buffClass);
         
         buffClass = new Classroom("3e1");
+        
+        buffClass.addDiscipline(d2, d3, d4);
         buffClass.addStudent(new Student("Gamble","Haley"),
                         new Student("Mercado","Galena"),
                         new Student("Hartman","Moana"),
                         new Student("Graham","Coby"));
         buffClass.addTeacher(t1,t2,t3, t6);
-        buffClass.addDiscipline(d2, d3);
         buffClass.setHeadTeacher(t2);
         e.addClass(buffClass);
         
         buffClass = new Classroom("6e1");
+        buffClass.addDiscipline(d1, d2, d2, d3,d6);        
         buffClass.addStudent(new Student("Chaney","Reuben"),
                         new Student("Wright","Hayes"),
                         new Student("Nash","Tobias"),
                         new Student("Phelps","Isabelle"));
         buffClass.addTeacher(t2, t6);
-        buffClass.addDiscipline(d1, d2, d2, d3);
         buffClass.setHeadTeacher(t6);
+        Iterator it = buffClass.getStudents().iterator();
+        buffClass.getStudents().iterator().next().getNotes().get(d2).setNote((float) 10.2);
+        it.next();
+        
+        ((Student)(it.next())).getNotes().get(d2).setNote((float) 15.2);
+        buffClass.getStudents().iterator().next().getNotes().get(d1).setComment("Commentaire matière "+d1);
+        buffClass.getStudents().iterator().next().setComment("commentaire général");
         e.addClass(buffClass);
         
         buffClass = new Classroom("4e1");
+        buffClass.addDiscipline(d1, d3, d2);        
         buffClass.addStudent(new Student("Meyers","Phelan"),
                     	new Student("Horn","Madaline"),
                         new Student("Bright","Naida"),
                         new Student("Smith","Jenette"));
         buffClass.addTeacher(t1, t5);
-        buffClass.addDiscipline(d1, d3, d2);
         buffClass.setHeadTeacher(t1);
         e.addClass(buffClass);
         
         buffClass = new Classroom("5e2");
+        buffClass.addDiscipline(d1, d3, d2, d4, d5);   
         buffClass.addStudent(new Student("Burris","Hedy"),
         new Student("Curtis","Jared"),
 	new Student("Wallace","Barrett"));
         buffClass.addTeacher(t4,t5, t6);
         buffClass.setHeadTeacher(t4);
-        buffClass.addDiscipline(d1, d3, d2, d4, d5);
 
         e.addClass(buffClass);
         

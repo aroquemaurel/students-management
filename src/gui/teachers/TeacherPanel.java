@@ -6,12 +6,17 @@
 
 package gui.teachers;
 
+import etablissement.Discipline;
+import etablissement.classroom.Classroom;
 import etablissement.person.Teacher;
 import gui.MainFrame;
 import static gui.MainFrame.currentPerson;
 import static gui.MainFrame.etablissement;
 import gui.Utils;
+import gui.models.StudentsTableModel;
 import gui.renderer.ClassTreeRenderer;
+import gui.renderer.TeacherTableRenderer;
+import javax.swing.tree.DefaultMutableTreeNode;
 
 /**
  *
@@ -42,26 +47,47 @@ public class TeacherPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        jScrollPane1.setViewportView(treeClass);
         treeClass.setCellRenderer(new ClassTreeRenderer());
+        treeClass.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                treeClassValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(treeClass);
 
         add(jScrollPane1, java.awt.BorderLayout.WEST);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        jTable1.setModel(new StudentsTableModel()
+        );
+        jTable1.setCellSelectionEnabled(true);
         jScrollPane2.setViewportView(jTable1);
+        jTable1.setDefaultRenderer(Object.class, new TeacherTableRenderer());
 
         add(jScrollPane2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void treeClassValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_treeClassValueChanged
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode) treeClass.getLastSelectedPathComponent();
+        if (node == null) {   //Nothing is selected.  
+            return;
+        }
+        Object nodeInfo;
+
+        StudentsTableModel model = ((StudentsTableModel)(jTable1.getModel()));
+        if (node.isLeaf()) {
+            nodeInfo = ((DefaultMutableTreeNode)(node.getParent())).getUserObject();
+            model.setCurrentDiscipline(new Discipline((String)(node.getUserObject())));
+        } else {
+            nodeInfo = node.getUserObject();
+            model.setCurrentDiscipline(null);
+        }
+
+        Classroom c = MainFrame.etablissement.getClass(new Classroom((String)nodeInfo));
+        model.setStudents(c.getStudents());
+        model.setIsHeadTeach(c.getHeadTeacher().equals(MainFrame.currentPerson));
+        
+        
+    }//GEN-LAST:event_treeClassValueChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;

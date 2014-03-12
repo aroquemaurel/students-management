@@ -113,6 +113,9 @@ public class Classroom implements Comparable<Classroom> {
     
     public void addStudent(Student... pStudents) {
         _students.addAll(Arrays.asList(pStudents));
+        for(Student s : pStudents) {
+            s.initializeNotes(_disciplines);
+        }
     }
     
     public void addTeacher(Teacher... pTeachers) {

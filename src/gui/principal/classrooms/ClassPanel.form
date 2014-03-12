@@ -71,9 +71,9 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
             <Component class="javax.swing.JList" name="listTeachers">
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="listTeachers.setCellRenderer(new TeacherListRenderer());"/>
-              </AuxValues>
+              <Properties>
+                <Property name="selectionMode" type="int" value="0"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
