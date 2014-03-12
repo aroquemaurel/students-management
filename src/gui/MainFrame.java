@@ -11,7 +11,6 @@ import etablissement.person.Person;
 import gui.principal.PrincipalPanel;
 import gui.principal.classrooms.AddClassDialog;
 import gui.principal.classrooms.AddStudentDialog;
-import gui.principal.teachers.AddTeacherDialog;
 import java.awt.CardLayout;
 
 /**
@@ -57,8 +56,6 @@ public final class MainFrame extends javax.swing.JFrame {
         actionNewClass = new javax.swing.JMenuItem();
         actionAddStudent = new javax.swing.JMenuItem();
         actionAddTeacher = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -122,19 +119,6 @@ public final class MainFrame extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Professeurs");
-
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/add.png"))); // NOI18N
-        jMenuItem4.setText("Ajouter un professeur");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem4);
-
-        jMenuBar1.add(jMenu3);
-
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -151,10 +135,6 @@ public final class MainFrame extends javax.swing.JFrame {
     private void actionNewClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionNewClassActionPerformed
         (new AddClassDialog(this, true)).setVisible(true);
     }//GEN-LAST:event_actionNewClassActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        (new AddTeacherDialog(this, true)).setVisible(true);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void actionAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionAddStudentActionPerformed
         (new AddStudentDialog(this, true)).setVisible(true);
@@ -182,10 +162,8 @@ public final class MainFrame extends javax.swing.JFrame {
     private gui.ConnexionPanel connexionPanel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private gui.principal.PrincipalPanel principalFrame1;
@@ -194,11 +172,9 @@ public final class MainFrame extends javax.swing.JFrame {
 
     public void showMenuPrincipal() {
         jMenu2.setVisible(true);
-        jMenu3.setVisible(true);
     }
 
     public void hideMenuPrincipal() {
         jMenu2.setVisible(false);
-        jMenu3.setVisible(false);
     }
 }
