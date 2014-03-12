@@ -1,9 +1,10 @@
 \select@language {french}
-\contentsline {chapter}{\numberline {1}Conception}{4}{chapter.1}
-\contentsline {section}{\numberline {1.1}Les donn\IeC {\'e}es m\IeC {\'e}tiers}{4}{section.1.1}
-\contentsline {section}{\numberline {1.2}L'interface Homme Machine}{4}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Les formulaires}{4}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Les mod\IeC {\`e}les}{4}{subsection.1.2.2}
-\contentsline {subsection}{\numberline {1.2.3}Les rendus}{4}{subsection.1.2.3}
-\contentsline {chapter}{\numberline {2}Choix d'interface}{5}{chapter.2}
-\contentsline {chapter}{\numberline {3}Donn\IeC {\'e}es de tests}{6}{chapter.3}
+\contentsline {section}{\numberline {1}Avant-propos}{1}{section.1}
+\contentsline {section}{\numberline {2}Table des mati{\`e}res\markboth {\MakeUppercase {Table des mati{\`e}res}}{\MakeUppercase {Table des mati{\`e}res}}}{1}{section.2}
+\contentsline {section}{\numberline {3}Conception}{1}{section.3}
+\contentsline {subsection}{\numberline {3.1}R\IeC {\'e}partition en package}{2}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Donn\IeC {\'e}es m\IeC {\'e}tiers}{2}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Interface Graphique Swing}{2}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}Connexion avec l'IHM}{3}{subsection.3.2}
+\contentsline {section}{\numberline {4}Choix d'interface}{3}{section.4}
+\contentsline {section}{\numberline {5}Donn\IeC {\'e}es de tests}{3}{section.5}
