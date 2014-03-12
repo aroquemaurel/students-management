@@ -7,7 +7,6 @@
 package gui;
 
 import etablissement.person.Teacher;
-import gui.principal.classrooms.ClassPanel;
 import gui.teachers.TeacherPanel;
 import java.awt.CardLayout;
 
@@ -134,16 +133,19 @@ public class ConnexionPanel extends javax.swing.JPanel {
 
     private void btnConnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnexionActionPerformed
         CardLayout layout = ((CardLayout)getParent().getLayout());
-        
         if(MainFrame.etablissement != null ) {
+            MainFrame mainframe = (MainFrame) (getParent().getParent().getParent().getParent().getParent());
+
             // si principal avec mdp correct
             if(MainFrame.etablissement.getPrincipal().loginIsCorrect(txtName.getText(), txtPassword.getPassword())) {
                 MainFrame.currentPerson = MainFrame.etablissement.getPrincipal();
                 layout.next(getParent());
+                mainframe.showMenuPrincipal();
             } else {
                 // si prof avec mdp correct
                 Teacher t = MainFrame.etablissement.getTeacherByName(txtName.getText());
                 if(t != null && t.loginIsCorrect(txtName.getText(), txtPassword.getPassword())) {
+                    mainframe.hideMenuPrincipal();
                     layout.next(getParent());
                     layout.next(getParent());
                     MainFrame.currentPerson = t;

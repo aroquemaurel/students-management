@@ -9,7 +9,6 @@ package etablissement.person;
 import etablissement.Discipline;
 import etablissement.Etablissement;
 import etablissement.classroom.Classroom;
-import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -18,7 +17,7 @@ import java.util.TreeSet;
  * @author aroquemaurel
  */
 public class Teacher extends AuthorizedPerson {
-    Discipline _discipline;
+    private Discipline _discipline;
     
     public Teacher(String firstName, String lastName, String password, Discipline discipline) {
         super(firstName, lastName, password);

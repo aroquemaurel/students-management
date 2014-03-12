@@ -6,8 +6,6 @@
 
 package gui.principal;
 
-import gui.MainFrame;
-import gui.data.models.TeachersTableModel;
 import gui.principal.classrooms.ClassPanel;
 
 /**

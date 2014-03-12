@@ -17,7 +17,7 @@ import java.util.Set;
  * @author aroquemaurel
  */
 public class Student extends Person {
-    private Map<Discipline, Note> _notes;
+    private final Map<Discipline, Note> _notes;
     private String _comment;
     public Student(String firstname, String lastname) {
         super(firstname, lastname);

@@ -14,6 +14,8 @@ public class AddTeacherDialog extends javax.swing.JDialog {
 
     /**
      * Creates new form AddTeacherFrame
+     * @param parent
+     * @param modal
      */
     public AddTeacherDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);

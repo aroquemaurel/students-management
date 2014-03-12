@@ -6,7 +6,6 @@
 
 package gui;
 
-import etablissement.Discipline;
 import etablissement.classroom.Classroom;
 import etablissement.classroom.Level;
 import static gui.MainFrame.etablissement;
@@ -71,12 +70,6 @@ public class Utils {
                 while(itDisciplines.hasNext()) {
                     currentNode.add(new DefaultMutableTreeNode(itDisciplines.next().toString()));
                 }
-                // Si premièré itération, ou nouveau niveau
-                //if(currentClassroom == null || !currentClassroom.getDisciplines().contains()equals(currentDiscipline.getLevel())) {
-//                    currentClassroom = currentDiscipline.getLevel();
-  //                  currentNode = new DefaultMutableTreeNode(currentClassroom.toString());
-               // } 
-
             }
         }
         t.setModel(new DefaultTreeModel(racine));

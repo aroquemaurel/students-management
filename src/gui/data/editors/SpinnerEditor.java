@@ -71,7 +71,7 @@ public class SpinnerEditor extends DefaultCellEditor {
             spinner.commitEdit();
         } catch ( java.text.ParseException e ) {
             JOptionPane.showMessageDialog(null,
-                "Invalid value, discarding.");
+                "Erreur: Note invalide");
         }
         return super.stopCellEditing();
     }

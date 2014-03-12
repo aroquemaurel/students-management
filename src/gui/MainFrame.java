@@ -13,13 +13,12 @@ import gui.principal.classrooms.AddClassDialog;
 import gui.principal.classrooms.AddStudentDialog;
 import gui.principal.teachers.AddTeacherDialog;
 import java.awt.CardLayout;
-import javax.swing.JPanel;
 
 /**
  *
  * @author aroquemaurel
  */
-public class MainFrame extends javax.swing.JFrame {
+public final class MainFrame extends javax.swing.JFrame {
     public static Etablissement etablissement;
     public static Person currentPerson;
     /**
@@ -32,8 +31,8 @@ public class MainFrame extends javax.swing.JFrame {
         } else {
             etablissement = e;
         }
-        
         initComponents();
+        hideMenuPrincipal();
     }
 
     /**
@@ -192,4 +191,14 @@ public class MainFrame extends javax.swing.JFrame {
     private gui.principal.PrincipalPanel principalFrame1;
     private gui.teachers.TeacherPanel teacherPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public void showMenuPrincipal() {
+        jMenu2.setVisible(true);
+        jMenu3.setVisible(true);
+    }
+
+    public void hideMenuPrincipal() {
+        jMenu2.setVisible(false);
+        jMenu3.setVisible(false);
+    }
 }

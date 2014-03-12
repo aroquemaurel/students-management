@@ -11,7 +11,7 @@ package etablissement.classroom;
  * @author aroquemaurel
  */
 public class Level implements Comparable<Level> {
-    private int _level;
+    private final int _level;
     
     public Level(final int level) {
         _level = level;

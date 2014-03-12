@@ -17,8 +17,6 @@ import gui.data.editors.SpinnerEditor;
 import gui.data.models.StudentsTableModel;
 import gui.data.renderer.ClassTreeRenderer;
 import gui.data.renderer.TeacherTableRenderer;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 /**

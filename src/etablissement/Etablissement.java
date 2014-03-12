@@ -8,7 +8,6 @@ package etablissement;
 
 import etablissement.classroom.Classroom;
 import etablissement.classroom.Level;
-import gui.MainFrame;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Set;
