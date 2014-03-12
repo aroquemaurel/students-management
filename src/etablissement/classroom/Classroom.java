@@ -19,11 +19,11 @@ import etablissement.person.Teacher;
  * @author aroquemaurel
  */
 public class Classroom implements Comparable<Classroom> {
-    private Level _level;
-    private int _number;
-    private Set<Student> _students;
-    private Set<Teacher> _teachers;
-    private Set<Discipline> _disciplines;
+    private final Level _level;
+    private final int _number;
+    private final Set<Student> _students;
+    private final Set<Teacher> _teachers;
+    private final Set<Discipline> _disciplines;
     private Teacher _headTeacher;
     
     public Classroom(final Level l, final int num) {

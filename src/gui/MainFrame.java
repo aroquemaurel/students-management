@@ -11,6 +11,7 @@ import etablissement.person.Person;
 import gui.principal.PrincipalPanel;
 import gui.principal.classrooms.AddClassDialog;
 import gui.principal.classrooms.AddStudentDialog;
+import gui.principal.classrooms.AddTeacherDialogBis;
 import java.awt.CardLayout;
 
 /**
@@ -115,6 +116,11 @@ public final class MainFrame extends javax.swing.JFrame {
 
         actionAddTeacher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/add.png"))); // NOI18N
         actionAddTeacher.setText("Ajouter un enseignant");
+        actionAddTeacher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actionAddTeacherActionPerformed(evt);
+            }
+        });
         jMenu2.add(actionAddTeacher);
 
         jMenuBar1.add(jMenu2);
@@ -139,6 +145,10 @@ public final class MainFrame extends javax.swing.JFrame {
     private void actionAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionAddStudentActionPerformed
         (new AddStudentDialog(this, true)).setVisible(true);
     }//GEN-LAST:event_actionAddStudentActionPerformed
+
+    private void actionAddTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionAddTeacherActionPerformed
+        (new AddTeacherDialogBis(this, true)).setVisible(true);
+    }//GEN-LAST:event_actionAddTeacherActionPerformed
 
     public PrincipalPanel getPrincipalFrame1() {
         return principalFrame1;
