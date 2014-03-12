@@ -9,6 +9,7 @@ package gui.principal.classrooms;
 import etablissement.classroom.Classroom;
 import gui.MainFrame;
 import gui.Utils;
+import gui.data.renderer.TeacherListRenderer;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 
@@ -65,6 +66,7 @@ public final class ClassPanel extends javax.swing.JPanel {
 
         listTeachers.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane3.setViewportView(listTeachers);
+        listTeachers.setCellRenderer(new TeacherListRenderer());
 
         jPanel1.add(jScrollPane3);
 
@@ -81,6 +83,7 @@ public final class ClassPanel extends javax.swing.JPanel {
             listStudents.setVisible(true);
             listTeachers.setVisible(true);
             Classroom c = MainFrame.etablissement.getClass(new Classroom((String)nodeInfo));
+            ((TeacherListRenderer)(listTeachers.getCellRenderer())).setClass(c);
             listStudents.setListData(c.getStudents().toArray());
             listTeachers.setListData(c.getTeachers().toArray());
         } else {

@@ -21,6 +21,7 @@ public class ConnexionPanel extends javax.swing.JPanel {
      */
     public ConnexionPanel() {
         initComponents();
+        labelErr.setVisible(false);
     }
 
     /**
@@ -48,6 +49,11 @@ public class ConnexionPanel extends javax.swing.JPanel {
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         jPanel6 = new javax.swing.JPanel();
         btnConnexion = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        filler5 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0));
+        filler6 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
+        labelErr = new javax.swing.JLabel();
+        filler7 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
 
         setLayout(new java.awt.BorderLayout());
 
@@ -121,14 +127,26 @@ public class ConnexionPanel extends javax.swing.JPanel {
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(0, 48, Short.MAX_VALUE)
+                .addGap(0, 70, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         add(jPanel8, java.awt.BorderLayout.CENTER);
+
+        jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel7.add(filler5);
+        jPanel7.add(filler6);
+
+        labelErr.setFont(new java.awt.Font("DejaVu Serif", 0, 12)); // NOI18N
+        labelErr.setForeground(new java.awt.Color(255, 51, 51));
+        labelErr.setText("Nom d'utilisateur ou mot de passe incorrect");
+        jPanel7.add(labelErr);
+        jPanel7.add(filler7);
+
+        add(jPanel7, java.awt.BorderLayout.SOUTH);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnexionActionPerformed
@@ -141,6 +159,7 @@ public class ConnexionPanel extends javax.swing.JPanel {
                 MainFrame.currentPerson = MainFrame.etablissement.getPrincipal();
                 layout.next(getParent());
                 mainframe.showMenuPrincipal();
+                labelErr.setVisible(false);
             } else {
                 // si prof avec mdp correct
                 Teacher t = MainFrame.etablissement.getTeacherByName(txtName.getText());
@@ -150,8 +169,9 @@ public class ConnexionPanel extends javax.swing.JPanel {
                     layout.next(getParent());
                     MainFrame.currentPerson = t;
                     TeacherPanel.fillTree();
+                    labelErr.setVisible(false);
                 } else { // login ou mdp incorrect
-                    // TODO password incorrect
+                    labelErr.setVisible(true);
                 }
             }
         }
@@ -172,6 +192,9 @@ public class ConnexionPanel extends javax.swing.JPanel {
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
     private javax.swing.Box.Filler filler4;
+    private javax.swing.Box.Filler filler5;
+    private javax.swing.Box.Filler filler6;
+    private javax.swing.Box.Filler filler7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -180,7 +203,9 @@ public class ConnexionPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JLabel labelErr;
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
